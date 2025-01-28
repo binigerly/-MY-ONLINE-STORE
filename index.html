@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Online Store</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            color: #4b3832;
+            background-color: #fdf6f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            background-color: #fce8e6;
+            padding: 20px;
+            border-bottom: 2px solid #f4c7c3;
+        }
+
+        header img {
+            border-radius: 50%;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #4b3832;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 8px 15px;
+            border: 2px solid #f4c7c3;
+            border-radius: 25px;
+            background-color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #f4c7c3;
+            color: #fff;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #8c5b5b;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 28px;
+        }
+
+        article {
+            background-color: #fff;
+            border: 2px solid #f4c7c3;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        figure {
+            text-align: center;
+        }
+
+        figure img {
+            max-width: 100%;
+            border-radius: 15px;
+            border: 3px solid #f4c7c3;
+        }
+
+        figure figcaption {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #4b3832;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #f4c7c3;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #e09a96;
+        }
+
+        .product {
+            display: inline-block;
+            width: calc(33.33% - 20px);
+            margin: 10px;
+            vertical-align: top;
+        }
+
+        @media (max-width: 768px) {
+            .product {
+                width: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product {
+                width: 100%;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #fce8e6;
+            border-top: 2px solid #f4c7c3;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 0;
+            color: #4b3832;
+        }
+        #promo-bundle {
+            background: #ffb6c1;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        #promo-bundle h2 {
+            color: #e85fb2;
+        }
+
+        #promo-bundle p {
+            font-size: 18px;
+            color: #4f2a39;
+        }
+
+        #promo-bundle a {
+            padding: 10px 20px;
+            background: #ff546e;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        #promo-bundle a:hover {
+            background: #e03d5a;
+        }
+
+        #contact-us {
+            background: #f9f9f9;
+            padding: 40px;
+            text-align: center;
+        }
+
+        #contact-us h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #contact-us p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        #contact-us form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        #contact-us label {
+            font-size: 16px;
+            color: #444;
+        }
+
+        #contact-us input, #contact-us textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #contact-us button {
+            background: #ff546e;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #contact-us button:hover {
+            background: #e03d5a;
+        }
+
+        #contact-us div {
+            margin-top: 30px;
+        }
+
+        #contact-us div p {
+            font-size: 16px;
+            color: #444;
+        }
+
+        #contact-us a {
+            color: #e03d5a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #contact-us a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Logo.jpg" alt="My Online Store Logo" height="100">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#aboutus">About Us</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#promos">Promos</a></li>
+                <li><a href="#contactus">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article id="aboutus">
+            <h2>About Us</h2>
+            <figure>
+                <img src="Logo.jpg" alt="Store Logo" height="350">
+                <figcaption><i>Handmade bouquets crafted with love and care.</i></figcaption>
+            </figure>
+            <p><b>Welcome to My Online Store Handmade with Love</b><br>
+                At My Online Store, we believe in the magic of flowers and the joy they bring to life’s special moments. Every bouquet we create is handcrafted with care, using only the freshest blooms and a touch of creativity to make each arrangement truly unique.<br>
+                
+                <br><b>Our Story</b></br>
+                What started as a passion for flowers and a love for crafting has blossomed into a boutique dedicated to sharing beauty with others. Whether it’s for a birthday, wedding, anniversary, or simply to brighten someone’s day, our bouquets are designed to speak the language of the heart.<br>
+                <br><b>Our Promise</b></br>
+                
+                Quality First: We carefully select every flower to ensure it’s fresh, vibrant, and long-lasting.
+                Eco-Friendly Approach: Our wrapping materials are sustainable, and we strive to minimize waste.
+                Personal Touch: Every bouquet is made-to-order, so you get something as special as the occasion.<br>
+                <br><b>Why Choose Us?</b></br>
+
+                🎀100% handmade using satin ribbon
+                    <br>🎀 Made with love and effort
+                    <br>🎀Very affordable
+                    <br>🎀Crafted with love
+                    <br>🎀Long lasting 
+                    <br>🎀Made of satin ribbon so it can be kept forever
+
+                <p>✓We accept orders location
+                    <br>✓ Pick up and Delivery 
+                   (Delivery fee shall apply depending on the distance of your location)
+                    <br>✓ Open for advance reservation</p>
+                    <br><b>Customizable Bouquets </b></br>
+                 Share your vision, and we’ll bring it to life!Passion for Details: From color harmony to flower selection, we ensure perfection in every petal.
+                <i>Local Love:</i> Supporting local flower growers and artisans is at the heart of what we do.
+                We’re here to make your floral dreams come true. Thank you for letting us be part of your special moments. 💐<br>
+        </article>
+        <h1 id="products">Our Latest Products</h1>
+        <section class="product">
+            <figure>
+                <img src="Product 1.jpg" alt="Product">
+                <figcaption><b>16 Pieces Satin Bouquet (free fairy lights)</b></figcaption>
+                <figcaption>Price: 720.00 PHP</figcaption>
+                <button class="btn">Buy now</button>
+            </figure>
+        </section>
+        <section class="product">
+            <figure>
+                <img src="Product 2.jpg" alt="Product">
+                <figcaption><b>10 Pieces Satin Bouquet</b></figcaption>
+                <figcaption>Price: 450.00 PHP</figcaption>
+                <button class="btn">Buy now</button>
+            </figure>
+        </section>
+        <section class="product">
+            <figure>
+                <img src="Product 3.jpg" alt="Product">
+                <figcaption><b>6 Pieces Satin Bouquet</b></figcaption>
+                <figcaption>Price: 295.00 PHP</figcaption>
+                <button class="btn">Buy now</button>
+            </figure>
+        </section>
+        <section class="product">
+            <figure>
+                <img src="Product 4.jpg" alt="Product">
+                <figcaption><b>8 Pieces Satin Bouquet</b></figcaption>
+                <figcaption>Price: 365.00 PHP</figcaption>
+                <button class="btn">Buy now</button>
+            </figure>
+        </section>
+        <section class="product">
+            <figure>
+                <img src="Product 5.jpg" alt="Product">
+                <figcaption><b>5 Pieces Satin Bouquet</b></figcaption>
+                <figcaption>Price: 255.00 PHP</figcaption>
+                <button class="btn">Buy now</button>
+            </figure>
+        </section>
+        <section class="product">
+            <figure>
+                <img src="Product 6.jpg" alt="Product">
+                <figcaption><b>1 Pieces Satin Bouquet</b></figcaption>
+                <figcaption>Price: 65.00 PHP</figcaption>
+                <button class="btn">Buy now</button>
+            </figure>
+        </section>
+        <section class="product">
+            <figure>
+                <img src="Product 7.jpg" alt="Product">
+                <figcaption><b>3 Pieces Satin Bouquet</b></figcaption>
+                <figcaption>Price: 185.00 PHP</figcaption>
+                <button class="btn">Buy now</button>
+            </figure>
+        </section>
+        <section class="product">
+            <figure>
+                <img src="Product 8.jpg" alt="Product">
+                <figcaption><b>1 Pieces Satin MINI Bouquet</b></figcaption>
+                <figcaption>Price: 35.00 PHP</figcaption>
+                <button class="btn">Buy now</button>
+            </figure>
+        </section>
+        <section class="product">
+            <figure>
+                <img src="Product 9.jpg" alt="Product">
+                <figcaption><b>1 Pieces Satin MINI Bouquet</b></figcaption>
+                <figcaption>Price: 35.00 PHP</figcaption>
+                <button class="btn">Buy now</button>
+            </figure>
+        </section>
+        <section class="product">
+            <figure>
+                <img src="Product 10.jpg" alt="Product">
+                <figcaption><b>1 Pieces Satin Bouquet</b></figcaption>
+                <figcaption>Price: 65.00 PHP</figcaption>
+                <button class="btn">Buy now</button>
+            </figure>
+        </section>
+
+        <article id="Promos">
+            <section id="promo-bundle">
+                <h2 >Buy More, Save More!</h2>
+                <p>Buy <strong>2 bouquets</strong> and get the <strong>3rd bouquet 50% off</strong>!</p>
+                <p>Mix and match your favorites. Perfect for gifts or special events!</p>
+                <a href="#products">Shop Now</a>
+            </section>
+
+            <section id="contact-us">Contact Us</h2>
+                <p style="font-size: 16px; margin-bottom: 30px;">Have a question or need help? We'd love to hear from you!</p>
+                
+                <form action="submit_form.php" method="POST">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your name">
+            
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+            
+                    <label for="message">Your Message:</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Enter your message"></textarea>
+            
+                    <button type="submit">
+                        Send Message
+                    </button>
+                </form>
+            
+             
+                <div style="margin-top: 30px;">
+                    <p><strong>Email: <a href="mailto:gerlygracepalomaompad@gmail.com">gerlygracepalomaompad@gmail.com</a></p>
+                    <p>Phone: 09501876622</p>
+                    <p>Address: D-5 Triangulo Nasipit Agusan del Norte</p>
+                    <p> Rights Reserved &copy; Bini_Gerly 2024</p>
+                    <a href="#top" style="text-align: center;">Back to Top</a>
+                </strong></strong>
+                </div>
+            </section>
+            </article>
+</body>
+</html>
